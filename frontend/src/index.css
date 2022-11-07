@@ -19,3 +19,21 @@ header a{
   font-weight: bold;
   font-size: larger;
 }
+
+.products{
+  display: flex;
+  margin:1rem;
+  justify-content: center;
+
+}
+
+.product{
+  padding:1rem;
+  margin:1rem;
+  border: 1px solid #404040;
+
+}
+
+.product img{
+  width:100%;
+}
