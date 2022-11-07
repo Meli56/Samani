@@ -1,7 +1,7 @@
 const data = {
     products: [
         {
-            name: 'rafu',
+            name: 'Rafu',
             slug: 'rafu',
             category: 'petit-mobilier',
             image: '/images/p1.jpg',
@@ -10,10 +10,10 @@ const data = {
             brand: 'STEP',
             rating:4.5,
             numReviews: 10,
-            description: 'high quality',
+            description: 'Etagere facile à monter',
         },
         {
-            name: 'mwenyekiti',
+            name: 'Mwenyekiti',
             slug: 'mwenyekiti',
             category: 'chaise',
             image: '/images/p2.jpg',
@@ -22,10 +22,10 @@ const data = {
             brand: 'STEP',
             rating:4.5,
             numReviews: 10,
-            description: 'high quality',
+            description: 'Chaise très solide',
         },
         {
-            name: 'sofa',
+            name: 'Sofa',
             slug: 'sofa',
             category: 'canape',
             image: '/images/p3.jpg',
@@ -34,10 +34,10 @@ const data = {
             brand: 'SOFA',
             rating:4.5,
             numReviews: 10,
-            description: 'high quality',
+            description: 'Canapé de qualité ',
         },
         {
-            name: 'matelas',
+            name: 'Matelas',
             slug: 'matelas',
             category: 'literie',
             image: '/images/p4.jpg',
@@ -46,7 +46,7 @@ const data = {
             brand: 'STEP',
             rating:4.5,
             numReviews: 10,
-            description: 'high quality',
+            description: 'Matelas à image de forme',
         },
     ],
 };
