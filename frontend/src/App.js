@@ -5,15 +5,13 @@ import HomeScreen from "./screens/HomeScreen";
 
 function App() {
   return (
-      <BrowserRouter>
+
         <div >
           <header >
             <a href="/">Samani</a>
           </header>
             <main>
-                <Routes>
-                    <Route path="/" element={<HomeScreen />} />
-                </Routes>
+
                 <h1>Produits</h1>
                 <div className="products">
                 {data.products.map(product => (
@@ -34,7 +32,7 @@ function App() {
                 </div>
             </main>
         </div>
-      </BrowserRouter>
+
   );
 }
 
