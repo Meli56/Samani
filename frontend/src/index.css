@@ -7,19 +7,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-header{
-  background-color: #252525;
-  padding: 1rem;
-
+.site-container{
+  min-height: 100vh;
 }
 
-header a{
-  text-decoration: none;
-  color: #ffffff;
-  font-weight: bold;
-  font-size: larger;
+main{
+  flex:1;
 }
-
 
 .products{
   display: flex;
@@ -45,7 +39,7 @@ header a{
 .product img{
   width:100%;
 
-  max-width: 600px;
+  max-width: 525px;
 
 
 }
