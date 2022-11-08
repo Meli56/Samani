@@ -14,6 +14,11 @@ function HomeScreen() {
     }, []);
     return (
         <div>
+            <div className="bandeau">
+                <img src="/images/bandeau.jpg" alt="" />
+                <a href="#section1" className="btn_bandeau" >DECOUVRIR</a>
+            </div>
+            <section id="section1" className="section1">
             <h1>Produits</h1>
             <div className="products">
                 {products.map((product) => (
@@ -36,6 +41,7 @@ function HomeScreen() {
                     </div>
                 ))}
             </div>
+            </section>
         </div>
     );
 }

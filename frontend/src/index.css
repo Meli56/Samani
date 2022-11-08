@@ -20,9 +20,6 @@ header a{
   font-size: larger;
 }
 
-main{
-  padding: 1rem;
-}
 
 .products{
   display: flex;
@@ -40,15 +37,14 @@ main{
 .product{
   padding:1rem;
   margin:1rem;
-  /*border: 1px solid #404040;*/
-  background-color: #ebebeb;
-  border-radius: 15px;
+
+
 
 }
 
 .product img{
   width:100%;
-  border-radius: 15px;
+
   max-width: 600px;
 
 
@@ -63,3 +59,34 @@ main{
 .nav_logo{
   margin-right:20px;
 }
+
+.bandeau{
+  height: 100vh;
+  width: 100%;
+}
+
+.bandeau img{
+  height: 100vh;
+  width: 100%;
+}
+
+.bandeau a{
+  text-decoration: none;
+  position: absolute;
+  top:85vh;
+  left: 47%;
+
+  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+  border-radius: 50px;
+  background-color: black;
+  color:white;
+  cursor: pointer;
+  border :none;
+}
+
+.section1{
+  margin: 1rem;
+  margin-top: 0;
+  padding: 1rem;
+}
+
