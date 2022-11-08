@@ -32,6 +32,11 @@ main{
 
 }
 
+.product-info a{
+  text-decoration: none;
+  color: #000;
+}
+
 .product{
   padding:1rem;
   margin:1rem;

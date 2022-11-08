@@ -23,7 +23,7 @@ function HomeScreen() {
                         </Link>
                         <div className="product-info">
                             <Link to={`/product/${product.slug}`}>
-                                <p>{product.name}</p>
+                                <h1>{product.name}</h1>
                             </Link>
                             <p>
                                 {product.description}
