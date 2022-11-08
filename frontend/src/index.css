@@ -90,3 +90,13 @@ header a{
   padding: 1rem;
 }
 
+.text-line {
+  position: absolute;
+  top:30vh;
+  left: 27%;
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+
+  font-size: 8rem;
+}
+
