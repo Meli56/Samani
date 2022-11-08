@@ -2,6 +2,7 @@
 import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
+import Header from "./screens/Header";
 
 
 function App() {
@@ -9,8 +10,13 @@ function App() {
 
       <BrowserRouter>
           <div>
-              <header>
-                  <Link to="/">Samani</Link>
+              <header >
+                  <Link to="/" className="nav">
+                      <Routes>
+                        <Route path="/" element={<Header />} />
+                      </Routes>
+                      SAMANI
+                  </Link>
               </header>
               <main>
                   <Routes>

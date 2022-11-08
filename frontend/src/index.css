@@ -35,11 +35,26 @@ main{
 .product{
   padding:1rem;
   margin:1rem;
-  border: 1px solid #404040;
+  /*border: 1px solid #404040;*/
+  background-color: #ebebeb;
+  border-radius: 15px;
 
 }
 
 .product img{
   width:100%;
-  max-width: 380px;
+  border-radius: 15px;
+  max-width: 600px;
+
+
+}
+
+.nav{
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+
+.nav_logo{
+  margin-right:20px;
 }

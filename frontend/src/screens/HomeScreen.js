@@ -26,6 +26,9 @@ function HomeScreen() {
                                 <p>{product.name}</p>
                             </Link>
                             <p>
+                                {product.description}
+                            </p>
+                            <p>
                                 <strong>{product.price}€</strong>
                             </p>
                             <button>Ajouter au panier</button>
