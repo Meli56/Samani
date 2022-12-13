@@ -6,7 +6,11 @@ import Header from "./screens/Header";
 import {Container, Navbar, NavbarBrand} from "react-bootstrap";
 import {LinkContainer} from 'react-router-bootstrap';
 import Bandeau from "./screens/Bandeau";
-
+/*
+                  <Routes>
+                      <Route path="/" element={<Bandeau />} />
+                  </Routes>
+ */
 
 function App() {
   return (
@@ -28,9 +32,7 @@ function App() {
                   </Navbar>
               </header>
               <main>
-                  <Routes>
-                      <Route path="/" element={<Bandeau />} />
-                  </Routes>
+
                   <Container>
                   <Routes>
                       <Route path="/product/:slug" element={<ProductScreen />} />

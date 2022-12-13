@@ -9,7 +9,7 @@ const data = {
             countInStock:10,
             brand: 'STEP',
             rating:4.5,
-            numReviews: 10,
+            numReviews: 15,
             description: 'Etagere facile à monter',
         },
         {
@@ -21,7 +21,7 @@ const data = {
             countInStock:10,
             brand: 'STEP',
             rating:4.5,
-            numReviews: 10,
+            numReviews: 9,
             description: 'Chaise très solide',
         },
         {
@@ -45,7 +45,7 @@ const data = {
             countInStock:10,
             brand: 'STEP',
             rating:4.5,
-            numReviews: 10,
+            numReviews: 3,
             description: 'Matelas à image de forme',
         },
     ],
