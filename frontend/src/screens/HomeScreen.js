@@ -5,6 +5,7 @@ import axios from "axios";
 import logger from "use-reducer-logger";
 import {Col, Row} from "react-bootstrap";
 import Product from "../components/Product";
+import {Helmet} from "react-helmet-async";
 
 
 const reducer = (state, action) => {
@@ -44,15 +45,18 @@ function HomeScreen() {
     }, []);
     return (
         <div>
-
+            <Helmet>
+                <title>Samani</title>
+            </Helmet>
             <section id="section1" className="section1">
+
             <h1>Produits</h1>
             <div className="products">
                 {
-                    loading? (
+                    loading ? (
                         <div>Loading...</div>
                     ):
-                    error? (
+                    error ? (
                         <div>{error}</div>
                     ):(
                         <Row>

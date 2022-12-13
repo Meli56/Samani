@@ -94,3 +94,7 @@ main{
   font-size: 8rem;
 }
 
+.img-large{
+  max-width:100%;
+}
+

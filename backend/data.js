@@ -6,7 +6,7 @@ const data = {
             category: 'petit-mobilier',
             image: '/images/p1.jpg',
             price: 20,
-            countInStock:10,
+            countInStock:0,
             brand: 'STEP',
             rating:4.5,
             numReviews: 15,
