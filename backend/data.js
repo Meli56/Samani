@@ -1,6 +1,7 @@
 const data = {
     products: [
         {
+            _id: '1',
             name: 'Rafu',
             slug: 'rafu',
             category: 'petit-mobilier',
@@ -13,6 +14,7 @@ const data = {
             description: 'Etagere facile à monter',
         },
         {
+            _id: '2',
             name: 'Mwenyekiti',
             slug: 'mwenyekiti',
             category: 'chaise',
@@ -25,6 +27,7 @@ const data = {
             description: 'Chaise très solide',
         },
         {
+            _id: '3',
             name: 'Sofa',
             slug: 'sofa',
             category: 'canape',
@@ -33,16 +36,17 @@ const data = {
             countInStock:10,
             brand: 'SOFA',
             rating:4.5,
-            numReviews: 10,
+            numReviews: 3,
             description: 'Canapé de qualité ',
         },
         {
+            _id: '4',
             name: 'Matelas',
             slug: 'matelas',
             category: 'literie',
             image: '/images/p4.jpg',
             price: 20,
-            countInStock:10,
+            countInStock:5,
             brand: 'STEP',
             rating:4.5,
             numReviews: 3,
