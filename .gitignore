@@ -5,6 +5,8 @@
 /Samani/backend/node_modules/
 /.pnp
 .pnp.js
+/Samani/backend/.env
+.env
 
 # testing
 /coverage

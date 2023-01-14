@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet-async";
 import axios from "axios";
 
 export default function CartScreen(){
+    const navigate = useNavigate();
     const {state, dispatch: ctxDispatch } = useContext(Store);
     const {
         cart: {cartItems},
@@ -23,15 +24,16 @@ export default function CartScreen(){
           payload: { ...item, quantity },
         });
       };
-      const removeItemHandler = (item) => {
+    const removeItemHandler = (item) => {
         ctxDispatch({ type: 'CART_REMOVE_ITEM', payload: item });
-      };
-    
-      const checkoutHandler = () => {
+    };
+
+    const checkoutHandler = () => {
         navigate('/signin?redirect=/shipping');
-      };
+    };
+
     return (
-        <div>
+        <div >
           <Helmet>
             <title>Shopping Cart</title>
           </Helmet>
@@ -76,7 +78,10 @@ export default function CartScreen(){
                         </Col>
                         <Col md={3}>${item.price}</Col>
                         <Col md={2}>
-                          <Button variant="light">
+                          <Button
+                              onClick={() => removeItemHandler(item)}
+                              variant="light"
+                          >
                             <i className="fas fa-trash"></i>
                           </Button>
                         </Col>
@@ -102,6 +107,7 @@ export default function CartScreen(){
                         <Button
                           type="button"
                           variant="primary"
+                          onClick={checkoutHandler}
                           disabled={cartItems.length === 0}
                         >
                           Proceed to Checkout

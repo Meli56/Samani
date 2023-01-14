@@ -3,7 +3,7 @@ function Header() {
 
     return (
         <div>
-            <img className="nav_logo" src="/images/logo.webp" alt="logo" width="50px"/>
+            <img className="nav_logo" src="/images/logo2.png" alt="logo" width="50px"/>
         </div>
 
     );

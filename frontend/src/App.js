@@ -9,6 +9,7 @@ import Bandeau from "./screens/Bandeau";
 import {useContext} from "react";
 import {Store} from "./Store";
 import CartScreen from './screens/CartScreen';
+import SigninScreen from "./screens/SigninScreen";
 /*
                   <Routes>
                       <Route path="/" element={<Bandeau />} />
@@ -24,7 +25,7 @@ function App() {
       <BrowserRouter>
           <div className="d-flex flex-column site-container">
               <header >
-                  <Navbar bg="dark" variant="dark">
+                  <Navbar bg="dark" variant="dark" className="nav">
                       <Container>
                           <LinkContainer to="/">
                               <Navbar.Brand>SAMANI</Navbar.Brand>
@@ -42,13 +43,20 @@ function App() {
                       </Container>
                   </Navbar>
               </header>
-              <main>
+              <main className="contain">
+                  <Routes>
+                      <Route path="/" element={<Bandeau />} />
+                  </Routes>
                   <Container className="mt-4">
+
                   <Routes>
                       <Route path="/product/:slug" element={<ProductScreen />} />
+                      <Route path="/signin" element={<SigninScreen />} />
                       <Route path="/cart" element={<CartScreen />} />
                       <Route path="/" element={<HomeScreen />} />
+
                   </Routes>
+
                   </Container>
               </main>
               <footer>

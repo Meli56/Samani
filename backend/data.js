@@ -33,7 +33,7 @@ const data = {
             category: 'canape',
             image: '/images/p3.jpg',
             price: 700,
-            countInStock:10,
+            countInStock:3,
             brand: 'SOFA',
             rating:4.5,
             numReviews: 3,
