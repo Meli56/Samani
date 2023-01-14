@@ -8,6 +8,7 @@ import {LinkContainer} from 'react-router-bootstrap';
 import Bandeau from "./screens/Bandeau";
 import {useContext} from "react";
 import {Store} from "./Store";
+import CartScreen from './screens/CartScreen';
 /*
                   <Routes>
                       <Route path="/" element={<Bandeau />} />
@@ -45,6 +46,7 @@ function App() {
                   <Container className="mt-4">
                   <Routes>
                       <Route path="/product/:slug" element={<ProductScreen />} />
+                      <Route path="/cart" element={<CartScreen />} />
                       <Route path="/" element={<HomeScreen />} />
                   </Routes>
                   </Container>
