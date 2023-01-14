@@ -31,6 +31,9 @@ main{
 .product{
   padding:1rem;
   margin:1rem;
+  box-shadow: -10px 30px 70px rgba(219,222,225);
+  border-radius: 20px;
+  border: 0;
 
 }
 
@@ -77,8 +80,7 @@ main{
 }
 
 .section1{
-  margin: 1rem;
-  margin-top: 0;
+  margin: 0 1rem 1rem;
   padding: 1rem;
 }
 
@@ -98,6 +100,7 @@ main{
 
 .img-thumbnail {
   height: 80px;
+  border: 0;
 }
 
 .small-container {
@@ -106,4 +109,15 @@ main{
 
 .contain{
   margin-top: 55px;
+}
+
+.items-cart{
+  box-shadow: -10px 30px 70px rgba(219,222,225);
+  border-radius: 20px !important;
+  border: 0;
+  margin-bottom: 25px;
+}
+
+h1{
+  margin: 30px 0;
 }
