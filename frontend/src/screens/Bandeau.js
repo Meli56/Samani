@@ -5,7 +5,7 @@ function Bandeau() {
     return (
         <div className="bandeau">
 
-            <img src="/images/bandeau2.png" alt="" />
+            <img src="/images/bandeau3.png" alt="" />
 
 
 
