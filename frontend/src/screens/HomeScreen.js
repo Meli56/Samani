@@ -68,22 +68,7 @@ function HomeScreen() {
                             </Row>
                         )}
                 </div>
-                <div className="products">
-                    {loading ? (
-                            <LoadingBox/>
-                        ):
-                        error ? (
-                            <MessageBox variant="danger">{error}</MessageBox>
-                        ):(
-                            <Row>
-                                {products.map((product) => (
-                                    <Col key={product.slug} sm={6} md={6} lg={3} >
-                                        <Product product={product}></Product>
-                                    </Col>
-                                ))}
-                            </Row>
-                        )}
-                </div>
+
             </section>
         </div>
     );
