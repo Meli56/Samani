@@ -1,7 +1,7 @@
 const data = {
     products: [
         {
-            _id: '1',
+            //_id: '1',
             name: 'Rafu',
             slug: 'rafu',
             category: 'petit-mobilier',
@@ -14,7 +14,7 @@ const data = {
             description: 'Etagere facile à monter',
         },
         {
-            _id: '2',
+            //_id: '2',
             name: 'Mwenyekiti',
             slug: 'mwenyekiti',
             category: 'chaise',
@@ -27,7 +27,7 @@ const data = {
             description: 'Chaise très solide',
         },
         {
-            _id: '3',
+            //_id: '3',
             name: 'Sofa',
             slug: 'sofa',
             category: 'canape',
@@ -40,7 +40,7 @@ const data = {
             description: 'Canapé de qualité ',
         },
         {
-            _id: '4',
+            //_id: '4',
             name: 'Matelas',
             slug: 'matelas',
             category: 'literie',
