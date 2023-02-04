@@ -1,5 +1,5 @@
 import LoadingBox from "../components/LoadingBox";
-import React, {useContext, useEffect, useReducer} from "react";
+import React, {useContext, useEffect, useReducer, useState} from "react";
 import MessageBox from "../components/MessageBox";
 import {Store} from "../Store";
 import {Link, useNavigate, useParams} from "react-router-dom";
@@ -7,7 +7,7 @@ import {getError} from "../utils";
 import axios from "axios";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import {Card, ListGroup} from "react-bootstrap";
+import {Button, Card, ListGroup} from "react-bootstrap";
 import {Helmet} from "react-helmet-async";
 
 function reducer(state, action) {
@@ -23,8 +23,10 @@ function reducer(state, action) {
             return state;
     }
 }
-export default function OrderScreen(){
 
+
+export default function OrderScreen(){
+    const [count, setCount] = useState(0);
     const { state } = useContext(Store);
     const { userInfo } = state;
 
@@ -39,6 +41,7 @@ export default function OrderScreen(){
     });
 
     useEffect(() => {
+
         const fetchOrder = async () => {
             try {
                 dispatch({ type: 'FETCH_REQUEST' });
@@ -58,6 +61,9 @@ export default function OrderScreen(){
             fetchOrder();
         }
     }, [order, userInfo, orderId, navigate]);
+
+
+
 
 
     return loading ? (
@@ -164,6 +170,14 @@ export default function OrderScreen(){
                                         </Col>
                                     </Row>
                                 </ListGroup.Item>
+                                {!order.isPaid && (
+                                    <ListGroup.Item>
+                                        <Button onClick={() => window.open('https://www.sandbox.paypal.com', "_blank")}>
+                                            Payer
+                                        </Button>
+
+                                    </ListGroup.Item>
+                                )}
                             </ListGroup>
                         </Card.Body>
                     </Card>

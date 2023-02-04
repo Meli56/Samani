@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@paypal/react-paypal-js": "^7.8.2",
+    "express-async-handler": "^1.2.0"
+  }
+}
