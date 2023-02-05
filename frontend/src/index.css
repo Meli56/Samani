@@ -69,8 +69,8 @@ main{
 .bandeau a{
   text-decoration: none;
   position: absolute;
-  top: 84vh;
-  left: 47.9%;
+  top: 87vh;
+  left: 47.85%;
   border-radius: 50px;
   background-color: black;
   color: white;
@@ -129,4 +129,26 @@ h1{
 .checkout-steps > div.active {
   border-bottom: 0.2rem solid #f08000;
   color: #f08000;
+}
+
+/* sidebar */
+.navbar-brand {
+  font-weight: bold;
+}
+.side-navbar {
+  width: 240px;
+  height: 100%;
+  position: absolute;
+  left: -300px;
+  background-color: #100901;
+  transition: 0.5s;
+  background-color: black;
+}
+
+.site-container {
+  transition: 0.4s;
+}
+
+.active-nav {
+  left: 0;
 }
