@@ -152,3 +152,28 @@ h1{
 .active-nav {
   left: 0;
 }
+.decoration{
+  color: white;
+  padding: 15px;
+  border-radius: 20px;
+  z-index: 9;
+}
+
+.decoration a{
+  text-decoration: none;
+  color: white;
+
+}
+
+.decoration p {
+  margin-bottom: 10px;
+}
+
+.decoration p:hover {
+  font-weight: bold;
+}
+
+.decoration .text-bold {
+  font-weight: bold;
+  text-decoration: underline;
+}

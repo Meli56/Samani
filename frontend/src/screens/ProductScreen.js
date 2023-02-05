@@ -100,6 +100,10 @@ function ProductScreen() {
                             Description:
                             <p>{product.description}</p>
                         </ListGroupItem>
+                        <ListGroupItem>
+                            Color:
+                            <p>{product.color}</p>
+                        </ListGroupItem>
                     </ListGroup>
                 </Col>
 

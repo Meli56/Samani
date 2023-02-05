@@ -20,6 +20,7 @@ import ProfileScreen from "./screens/ProfileScreen";
 import {getError} from "./utils";
 import axios from "axios";
 import SearchBox from './components/SearchBox';
+import SearchScreen from "./screens/SearchScreen";
 
 /*
                   <Routes>
@@ -93,7 +94,11 @@ function App() {
 
                                       <Nav.Item key={category}>
                                           <LinkContainer
-                                              to="`/category=${category}`"
+                                              to={{
+                                                  pathname: "/search",
+                                                  search: `?category=${category}`,
+                                              }}
+
                                               onClick={() => setSidebarIsOpen(false)}
                                           >
                                               <Nav.Link>{category}</Nav.Link>
@@ -164,6 +169,7 @@ function App() {
                       <Route path="/orderhistory" element={<OrderHistoryScreen />}></Route>
                       <Route path="/order/:id" element={<OrderScreen />} />
                       <Route path="/profile" element={<ProfileScreen />} />
+                      <Route path="/search" element={<SearchScreen />} />
 
                       <Route path="/shipping" element={<ShippingAddressScreen />} />
                       <Route path="/payment" element={<PaymentMethodScreen />}></Route>

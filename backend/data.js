@@ -28,6 +28,7 @@ const data = {
             rating:4.5,
             numReviews: 15,
             description: 'Etagere facile à monter',
+            color: 'gris',
         },
         {
             //_id: '2',
@@ -41,6 +42,8 @@ const data = {
             rating:4.5,
             numReviews: 9,
             description: 'Chaise très solide',
+            color: 'rouge',
+
         },
         {
             //_id: '3',
@@ -54,6 +57,8 @@ const data = {
             rating:4.5,
             numReviews: 3,
             description: 'Canapé de qualité ',
+            color: 'bleu',
+
         },
         {
             //_id: '4',
@@ -67,6 +72,8 @@ const data = {
             rating:4.5,
             numReviews: 3,
             description: 'Matelas à image de forme',
+            color: 'blanc',
+
         },
     ],
 };
