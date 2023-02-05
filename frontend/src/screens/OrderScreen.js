@@ -83,17 +83,10 @@ export default function OrderScreen(){
                             <Card.Title>Shipping</Card.Title>
                             <Card.Text>
                                 <strong>Name:</strong> {order.shippingAddress.fullName} <br />
-                                <strong>Address: </strong> {order.shippingAddress.address},
-                                {order.shippingAddress.city}, {order.shippingAddress.postalCode}
-                                ,{order.shippingAddress.country}
+                                <strong>Address: </strong> {order.shippingAddress.address},&nbsp;
+                                {order.shippingAddress.city},&nbsp;{order.shippingAddress.postalCode}
+                                ,&nbsp;{order.shippingAddress.country}
                             </Card.Text>
-                            {order.isDelivered ? (
-                                <MessageBox variant="success">
-                                    Delivered at {order.deliveredAt}
-                                </MessageBox>
-                            ) : (
-                                <MessageBox variant="danger">Not Delivered</MessageBox>
-                            )}
                         </Card.Body>
                     </Card>
                     <Card className="mb-3 items-cart">
@@ -102,13 +95,6 @@ export default function OrderScreen(){
                             <Card.Text>
                                 <strong>Method:</strong> {order.paymentMethod}
                             </Card.Text>
-                            {order.isPaid ? (
-                                <MessageBox variant="success">
-                                    Paid at {order.paidAt}
-                                </MessageBox>
-                            ) : (
-                                <MessageBox variant="danger">Not Paid</MessageBox>
-                            )}
                         </Card.Body>
                     </Card>
                     <Card className="mb-3 items-cart">
