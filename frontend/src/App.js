@@ -222,7 +222,9 @@ function App() {
                   </Container>
               </main>
               <footer>
-                  <div className="text-center"> © Tous les droits sont réservés</div>
+                  <div className="text-center"> © Tous les droits sont réservés - Mentions légales <br/>
+                      <Link to="/contact" >Contact</Link>
+                  </div>
               </footer>
           </div>
       </BrowserRouter>
