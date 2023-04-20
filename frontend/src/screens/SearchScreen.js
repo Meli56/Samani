@@ -6,7 +6,7 @@ import { getError } from '../utils';
 import { Helmet } from 'react-helmet-async';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Rating from '../components/Rating';
+
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import Button from 'react-bootstrap/Button';
@@ -48,27 +48,6 @@ const prices = [
     },
 ];
 
-export const ratings = [
-    {
-        name: '4stars & up',
-        rating: 4,
-    },
-
-    {
-        name: '3stars & up',
-        rating: 3,
-    },
-
-    {
-        name: '2stars & up',
-        rating: 2,
-    },
-
-    {
-        name: '1stars & up',
-        rating: 1,
-    },
-];
 
 export default function SearchScreen() {
     const navigate = useNavigate();
@@ -77,7 +56,7 @@ export default function SearchScreen() {
     const category = sp.get('category') || 'all';
     const query = sp.get('query') || 'all';
     const price = sp.get('price') || 'all';
-    const rating = sp.get('rating') || 'all';
+    const color = sp.get('color') || 'all';
     const order = sp.get('order') || 'newest';
     const page = sp.get('page') || 1;
 
@@ -91,7 +70,7 @@ export default function SearchScreen() {
         const fetchData = async () => {
             try {
                 const { data } = await axios.get(
-                    `/api/products/search?page=${page}&query=${query}&category=${category}&price=${price}&rating=${rating}&order=${order}`
+                    `/api/products/search?page=${page}&query=${query}&category=${category}&color=${color}&price=${price}&order=${order}`
                 );
                 dispatch({ type: 'FETCH_SUCCESS', payload: data });
             } catch (err) {
@@ -102,29 +81,40 @@ export default function SearchScreen() {
             }
         };
         fetchData();
-    }, [category, error, order, page, price, query, rating]);
+    }, [category, error, order, page, color, price, query]);
 
     const [categories, setCategories] = useState([]);
+    const [colors, setColors] = useState([]);
     useEffect(() => {
         const fetchCategories = async () => {
             try {
                 const { data } = await axios.get(`/api/products/categories`);
                 setCategories(data);
+                //setColors(data2);
+            } catch (err) {
+                toast.error(getError(err));
+            }
+        };
+        const fetchColors = async () => {
+            try {
+                const { data } = await axios.get(`/api/products/colors`);
+                setColors(data);
             } catch (err) {
                 toast.error(getError(err));
             }
         };
         fetchCategories();
+        fetchColors();
     }, [dispatch]);
 
     const getFilterUrl = (filter) => {
         const filterPage = filter.page || page;
         const filterCategory = filter.category || category;
         const filterQuery = filter.query || query;
-        const filterRating = filter.rating || rating;
+        const filterColor = filter.color || color;
         const filterPrice = filter.price || price;
         const sortOrder = filter.order || order;
-        return `/search?category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`;
+        return `/search?category=${filterCategory}&query=${filterQuery}&color=${filterColor}&price=${filterPrice}&order=${sortOrder}&page=${filterPage}`;
     };
     return (
         <div>
@@ -133,7 +123,7 @@ export default function SearchScreen() {
             </Helmet>
             <Row>
                 <Col md={3} className="decoration bg-dark">
-                    <h3>Department</h3>
+                    <h3>Categories</h3>
                     <div>
                         <ul>
                             <p>
@@ -179,29 +169,30 @@ export default function SearchScreen() {
                             ))}
                         </ul>
                     </div>
+                    <h3>Color</h3>
                     <div>
-                        <h3>Avg. Customer Review</h3>
                         <ul>
-                            {ratings.map((r) => (
-                                <p key={r.name}>
+                            <p>
+                                <Link
+                                    className={'all' === color ? 'text-bold' : ''}
+                                    to={getFilterUrl({ color: 'all' })}
+                                >
+                                    Any
+                                </Link>
+                            </p>
+                            {colors.map((c) => (
+                                <p key={c}>
                                     <Link
-                                        to={getFilterUrl({ rating: r.rating })}
-                                        className={`${r.rating}` === `${rating}` ? 'text-bold' : ''}
+                                        className={c === color ? 'text-bold' : ''}
+                                        to={getFilterUrl({ color: c })}
                                     >
-                                        <Rating caption={' & up'} rating={r.rating}></Rating>
+                                        {c}
                                     </Link>
                                 </p>
                             ))}
-                            <p>
-                                <Link
-                                    to={getFilterUrl({ rating: 'all' })}
-                                    className={rating === 'all' ? 'text-bold' : ''}
-                                >
-                                    <Rating caption={' & up'} rating={0}></Rating>
-                                </Link>
-                            </p>
                         </ul>
                     </div>
+
                 </Col>
                 <Col md={9}>
                     {loading ? (
@@ -217,10 +208,10 @@ export default function SearchScreen() {
                                         {query !== 'all' && ' : ' + query}
                                         {category !== 'all' && ' : ' + category}
                                         {price !== 'all' && ' : Price ' + price}
-                                        {rating !== 'all' && ' : Rating ' + rating + ' & up'}
+                                        {color !== 'all' && ' : Color ' + color}
                                         {query !== 'all' ||
                                         category !== 'all' ||
-                                        rating !== 'all' ||
+                                        color !== 'all' ||
                                         price !== 'all' ? (
                                             <Button
                                                 variant="light"

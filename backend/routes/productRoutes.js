@@ -75,7 +75,7 @@ productRouter.delete(
 );
 
 
-const PAGE_SIZE = 3;
+const PAGE_SIZE = 9;
 productRouter.get(
     '/admin',
     isAuth,
@@ -107,6 +107,7 @@ productRouter.get(
         const page = query.page || 1;
         const category = query.category || '';
         const price = query.price || '';
+        const color = query.color || '';
         const rating = query.rating || '';
         const order = query.order || '';
         const searchQuery = query.query || '';
@@ -121,6 +122,7 @@ productRouter.get(
                 }
                 : {};
         const categoryFilter = category && category !== 'all' ? { category } : {};
+        const colorFilter = color && color !== 'all' ? { color } : {};
         const ratingFilter =
             rating && rating !== 'all'
                 ? {
@@ -155,6 +157,7 @@ productRouter.get(
         const products = await Product.find({
             ...queryFilter,
             ...categoryFilter,
+            ...colorFilter,
             ...priceFilter,
             ...ratingFilter,
         })
@@ -165,6 +168,7 @@ productRouter.get(
         const countProducts = await Product.countDocuments({
             ...queryFilter,
             ...categoryFilter,
+            ...colorFilter,
             ...priceFilter,
             ...ratingFilter,
         });
@@ -185,6 +189,15 @@ productRouter.get(
         res.send(categories);
     })
 );
+
+productRouter.get(
+    '/colors',
+    expressAsyncHandler(async (req, res) => {
+        const colors = await Product.find().distinct('color');
+        res.send(colors);
+    })
+);
+
 
 
 

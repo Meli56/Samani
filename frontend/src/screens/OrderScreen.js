@@ -1,5 +1,5 @@
 import LoadingBox from "../components/LoadingBox";
-import React, {useContext, useEffect, useReducer, useState} from "react";
+import React, {useContext, useEffect, useReducer} from "react";
 import MessageBox from "../components/MessageBox";
 import {Store} from "../Store";
 import {Link, useNavigate, useParams} from "react-router-dom";
@@ -38,7 +38,6 @@ function reducer(state, action) {
 
 
 export default function OrderScreen(){
-    const [count, setCount] = useState(0);
     const { state } = useContext(Store);
     const { userInfo } = state;
 
@@ -52,7 +51,6 @@ export default function OrderScreen(){
             error,
             order,
             successPay,
-            loadingPay,
             loadingDeliver,
             successDeliver,
         },

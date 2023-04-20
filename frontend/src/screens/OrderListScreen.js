@@ -93,6 +93,7 @@ export default function OrderListScreen() {
                 <title>Orders</title>
             </Helmet>
             <h1>Orders</h1>
+            {loadingDelete && <LoadingBox></LoadingBox>}
             {loading ? (
                 <LoadingBox></LoadingBox>
             ) : error ? (

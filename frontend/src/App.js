@@ -2,14 +2,14 @@
 import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
-import {Badge, Button, Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
+import {Badge, Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
 import {LinkContainer} from 'react-router-bootstrap';
 import Bandeau from "./screens/Bandeau";
-import {useContext, useEffect, useState} from "react";
+import {useContext} from "react";
 import {Store} from "./Store";
 import CartScreen from './screens/CartScreen';
 import SigninScreen from "./screens/SigninScreen";
-import {toast, ToastContainer} from "react-toastify";
+import {ToastContainer} from "react-toastify";
 import ShippingAddressScreen from "./screens/ShippingAddressScreen";
 import SignupScreen from "./screens/SignupScreen";
 import PaymentMethodScreen from "./screens/PaymentMethodScreen";
@@ -17,12 +17,9 @@ import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import OrderScreen from "./screens/OrderScreen";
 import OrderHistoryScreen from "./screens/OrderHistoryScreen";
 import ProfileScreen from "./screens/ProfileScreen";
-import {getError} from "./utils";
-import axios from "axios";
 import SearchBox from './components/SearchBox';
 import SearchScreen from "./screens/SearchScreen";
 import ProtectedRoute from "./components/ProtectedRoute";
-import * as PropTypes from "prop-types";
 import DashboardScreen from "./screens/DashboardScreen";
 import AdminRoute from "./components/AdminRoute";
 import ProductListScreen from "./screens/ProductListScreen";
@@ -50,19 +47,7 @@ function App() {
         window.location.href = '/signin';
     };
 
-    const [categories, setCategories] = useState([]);
 
-    useEffect(() => {
-        const fetchCategories = async () => {
-            try {
-                const { data } = await axios.get(`/api/products/categories`);
-                setCategories(data);
-            } catch (err) {
-                toast.error(getError(err));
-            }
-        };
-        fetchCategories();
-    }, []);
     return (
 
       <BrowserRouter>

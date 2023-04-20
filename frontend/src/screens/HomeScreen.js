@@ -51,7 +51,7 @@ function HomeScreen() {
                 <title>Fihazgin</title>
             </Helmet>
             <section id="section1" className="section1">
-                <h1>Produits</h1>
+                <h1>Nouveautés</h1>
                 <div className="products">
                     {loading ? (
                             <LoadingBox/>
