@@ -56,7 +56,7 @@ export default function SignupScreen() {
             <h1 className="my-3">Créer compte</h1>
             <Form onSubmit={submitHandler}>
                 <Form.Group className="mb-3" controlId="name">
-                    <Form.Label>Name</Form.Label>
+                    <Form.Label>Nom</Form.Label>
                     <Form.Control onChange={(e) => setName(e.target.value)} required />
                 </Form.Group>
 
@@ -69,14 +69,14 @@ export default function SignupScreen() {
                     />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="password">
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label>Mot de passe</Form.Label>
                     <Form.Control
                         type="password"
                         required
                         onChange={(e) => setPassword(e.target.value)}
                     />
                     <Form.Group className="mb-3" controlId="confirmPassword">
-                        <Form.Label>Confirm Password</Form.Label>
+                        <Form.Label>Confirmer votre mot de passe</Form.Label>
                         <Form.Control
                             type="password"
                             onChange={(e) => setConfirmPassword(e.target.value)}
