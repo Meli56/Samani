@@ -111,7 +111,7 @@ export default function ProductEditScreen() {
             dispatch({
                 type: 'UPDATE_SUCCESS',
             });
-            toast.success('Product updated successfully');
+            toast.success('Produit modifié');
             navigate('/admin/products');
         } catch (err) {
             toast.error(getError(err));
@@ -119,41 +119,12 @@ export default function ProductEditScreen() {
         }
     };
 
-    /*
-    const uploadFileHandler = async (e) => {
-        const file = e.target.files[0];
-        const bodyFormData = new FormData();
-        bodyFormData.append('file', file);
-        try {
-            dispatch({ type: 'UPLOAD_REQUEST' });
-            const { data } = await axios.post('/api/upload', bodyFormData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                    authorization: `Bearer ${userInfo.token}`,
-                },
-            });
-            dispatch({ type: 'UPLOAD_SUCCESS' });
-
-            toast.success('Image uploaded successfully');
-            setImage(data.secure_url);
-        } catch (err) {
-            toast.error(getError(err));
-            dispatch({ type: 'UPLOAD_FAIL', payload: getError(err) });
-        }
-    };
-    <Form.Group className="mb-3" controlId="imageFile">
-        <Form.Label>Upload File</Form.Label>
-        <Form.Control type="file" onChange={uploadFileHandler} />
-        {loadingUpload && <LoadingBox></LoadingBox>}
-    </Form.Group>*/
-
-
     return (
         <Container className="small-container">
             <Helmet>
-                <title>Edit Product ${productId}</title>
+                <title>Modifier produit ${productId}€</title>
             </Helmet>
-            <h1>Edit Product {productId}</h1>
+            <h1>Modifier produit ${productId}</h1>
 
             {loading ? (
                 <LoadingBox></LoadingBox>
@@ -162,7 +133,7 @@ export default function ProductEditScreen() {
             ) : (
                 <Form onSubmit={submitHandler}>
                     <Form.Group className="mb-3" controlId="name">
-                        <Form.Label>Name</Form.Label>
+                        <Form.Label>Nom</Form.Label>
                         <Form.Control
                             value={name}
                             onChange={(e) => setName(e.target.value)}
@@ -178,7 +149,7 @@ export default function ProductEditScreen() {
                         />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="name">
-                        <Form.Label>Price</Form.Label>
+                        <Form.Label>Prix</Form.Label>
                         <Form.Control
                             value={price}
                             onChange={(e) => setPrice(e.target.value)}
@@ -186,7 +157,7 @@ export default function ProductEditScreen() {
                         />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="image">
-                        <Form.Label>Image File</Form.Label>
+                        <Form.Label>Image</Form.Label>
                         <Form.Control
                             value={image}
                             onChange={(e) => setImage(e.target.value)}
@@ -196,7 +167,7 @@ export default function ProductEditScreen() {
 
 
                     <Form.Group className="mb-3" controlId="category">
-                        <Form.Label>Category</Form.Label>
+                        <Form.Label>Categorie</Form.Label>
                         <Form.Control
                             value={category}
                             onChange={(e) => setCategory(e.target.value)}
@@ -204,7 +175,7 @@ export default function ProductEditScreen() {
                         />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="color">
-                        <Form.Label>Color</Form.Label>
+                        <Form.Label>Couleur</Form.Label>
                         <Form.Control
                             value={color}
                             onChange={(e) => setColor(e.target.value)}
@@ -212,7 +183,7 @@ export default function ProductEditScreen() {
                         />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="brand">
-                        <Form.Label>Brand</Form.Label>
+                        <Form.Label>Marque</Form.Label>
                         <Form.Control
                             value={brand}
                             onChange={(e) => setBrand(e.target.value)}
@@ -220,7 +191,7 @@ export default function ProductEditScreen() {
                         />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="countInStock">
-                        <Form.Label>Count In Stock</Form.Label>
+                        <Form.Label>Nombre en stock</Form.Label>
                         <Form.Control
                             value={countInStock}
                             onChange={(e) => setCountInStock(e.target.value)}
@@ -237,7 +208,7 @@ export default function ProductEditScreen() {
                     </Form.Group>
                     <div className="mb-3">
                         <Button disabled={loadingUpdate} type="submit">
-                            Update
+                            Modifier
                         </Button>
                         {loadingUpdate && <LoadingBox></LoadingBox>}
                     </div>

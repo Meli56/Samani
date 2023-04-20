@@ -64,9 +64,9 @@ export default function ProfileScreen() {
     return (
         <div className="container small-container">
             <Helmet>
-                <title>User Profile</title>
+                <title>Profil</title>
             </Helmet>
-            <h1 className="my-3">User Profile</h1>
+            <h1 className="my-3">Profil</h1>
             <form onSubmit={submitHandler}>
                 <Form.Group className="mb-3" controlId="name">
                     <Form.Label>Name</Form.Label>
@@ -86,21 +86,21 @@ export default function ProfileScreen() {
                     />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="password">
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label>Mot de passe</Form.Label>
                     <Form.Control
                         type="password"
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="password">
-                    <Form.Label>Confirm Password</Form.Label>
+                    <Form.Label>Confirmer mot de passe</Form.Label>
                     <Form.Control
                         type="password"
                         onChange={(e) => setConfirmPassword(e.target.value)}
                     />
                 </Form.Group>
                 <div className="mb-3">
-                    <Button type="submit">Update</Button>
+                    <Button type="submit">Modifer</Button>
                 </div>
             </form>
         </div>

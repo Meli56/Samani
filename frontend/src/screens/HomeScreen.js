@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 //import data from '../data';
-import {useEffect, useReducer} from "react";
+import {useEffect, useReducer, useState} from "react";
 import axios from "axios";
 import logger from "use-reducer-logger";
-import {Col, Row} from "react-bootstrap";
+import {Button, Col, Row} from "react-bootstrap";
 import Product from "../components/Product";
 import {Helmet} from "react-helmet-async";
 import LoadingBox from "../components/LoadingBox";
@@ -30,6 +30,12 @@ function HomeScreen() {
         loading: true,
         error: '',
     });
+    const navigate = useNavigate();
+    const [query, setQuery] = useState('');
+    const submitHandler = (e) => {
+        e.preventDefault();
+        navigate(query ? `/search/?query=${query}` : '/search');
+    };
     //const [products, setProducts] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
@@ -68,7 +74,7 @@ function HomeScreen() {
                             </Row>
                         )}
                 </div>
-
+                <Button onClick={submitHandler}>Tous les produits</Button>
             </section>
         </div>
     );

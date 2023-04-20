@@ -93,7 +93,7 @@ function ProductScreen() {
                         </ListGroupItem>
 
                         <ListGroupItem>
-                            Price : ${product.price}
+                            Prix : {product.price}€
                         </ListGroupItem>
 
                         <ListGroupItem>
@@ -101,7 +101,7 @@ function ProductScreen() {
                             <p>{product.description}</p>
                         </ListGroupItem>
                         <ListGroupItem>
-                            Color:
+                            Couleur:
                             <p>{product.color}</p>
                         </ListGroupItem>
                     </ListGroup>
@@ -113,8 +113,8 @@ function ProductScreen() {
                             <ListGroup variant="flush">
                                 <ListGroupItem>
                                     <Row>
-                                    <Col>Price : </Col>
-                                        <Col>${product.price}</Col>
+                                    <Col>Prix : </Col>
+                                        <Col>{product.price}€</Col>
                                     </Row>
                                 </ListGroupItem>
 
@@ -122,9 +122,9 @@ function ProductScreen() {
                                     <Row>
                                         <Col>Status : </Col>
                                         <Col>{product.countInStock > 0 ? (
-                                                <Badge bg="success">In Stock</Badge>
+                                                <Badge bg="success">En stock</Badge>
                                             ) : (
-                                                <Badge bg="danger">Unavailable</Badge>
+                                                <Badge bg="danger">Indisponible</Badge>
                                             )
                                         }</Col>
                                     </Row>
@@ -133,7 +133,7 @@ function ProductScreen() {
                                     <ListGroupItem>
                                         <div className="d-grid">
                                             <Button onClick={addToCartHandler} variant="primary">
-                                                Add to Cart
+                                                Ajouter au panier
                                             </Button>
                                         </div>
                                     </ListGroupItem>

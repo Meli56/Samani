@@ -116,12 +116,6 @@ export default function OrderScreen(){
         }
     }
 
-
-
-
-
-
-
     return loading ? (
         <LoadingBox></LoadingBox>
     ) : error ? (
@@ -129,17 +123,17 @@ export default function OrderScreen(){
     ) : (
         <div>
             <Helmet>
-                <title>Order {orderId}</title>
+                <title>Commande {orderId}</title>
             </Helmet>
             <h1 className="my-3">Order {orderId}</h1>
             <Row>
                 <Col md={8}>
                     <Card className="items-cart mb-3">
                         <Card.Body>
-                            <Card.Title>Shipping</Card.Title>
+                            <Card.Title>Livraison</Card.Title>
                             <Card.Text>
-                                <strong>Name:</strong> {order.shippingAddress.fullName} <br />
-                                <strong>Address: </strong> {order.shippingAddress.address},&nbsp;
+                                <strong>Nom:</strong> {order.shippingAddress.fullName} <br />
+                                <strong>Adresse: </strong> {order.shippingAddress.address},&nbsp;
                                 {order.shippingAddress.city},&nbsp;{order.shippingAddress.postalCode}
                                 ,&nbsp;{order.shippingAddress.country}
                             </Card.Text>
@@ -147,9 +141,9 @@ export default function OrderScreen(){
                     </Card>
                     <Card className="mb-3 items-cart">
                         <Card.Body>
-                            <Card.Title>Payment</Card.Title>
+                            <Card.Title>Paiement</Card.Title>
                             <Card.Text>
-                                <strong>Method:</strong> {order.paymentMethod}
+                                <strong>Methode:</strong> {order.paymentMethod}
                             </Card.Text>
                         </Card.Body>
                     </Card>
@@ -182,7 +176,7 @@ export default function OrderScreen(){
                 <Col md={4}>
                     <Card className="mb-3 items-cart">
                         <Card.Body>
-                            <Card.Title>Order Summary</Card.Title>
+                            <Card.Title>Resumé commande</Card.Title>
                             <ListGroup variant="flush">
                                 <ListGroup.Item>
                                     <Row>
@@ -192,20 +186,20 @@ export default function OrderScreen(){
                                 </ListGroup.Item>
                                 <ListGroup.Item>
                                     <Row>
-                                        <Col>Shipping</Col>
+                                        <Col>Livraison</Col>
                                         <Col>${order.shippingPrice.toFixed(2)}</Col>
                                     </Row>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
                                     <Row>
-                                        <Col>Tax</Col>
+                                        <Col>Taxes</Col>
                                         <Col>${order.taxPrice.toFixed(2)}</Col>
                                     </Row>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
                                     <Row>
                                         <Col>
-                                            <strong> Order Total</strong>
+                                            <strong> Total</strong>
                                         </Col>
                                         <Col>
                                             <strong>${order.totalPrice.toFixed(2)}</strong>
@@ -225,7 +219,7 @@ export default function OrderScreen(){
                                         {loadingDeliver && <LoadingBox></LoadingBox>}
                                         <div className="d-grid">
                                             <Button type="button" onClick={deliverOrderHandler}>
-                                                Deliver Order
+                                                Livrer la commande
                                             </Button>
                                         </div>
                                     </ListGroup.Item>

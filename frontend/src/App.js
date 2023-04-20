@@ -65,7 +65,7 @@ function App() {
                           <Navbar.Collapse id="basic-navbar-nav">
                               <Nav className="me-auto  w-100  justify-content-end">
                                   <Link to="/cart" className="nav-link">
-                                      Cart
+                                      Panier
                                       {cart.cartItems.length > 0 && (
                                           <Badge pill bg="danger" className="mx-2">
                                               {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
@@ -75,10 +75,10 @@ function App() {
                               {userInfo ? (
                                   <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
                                       <LinkContainer to="/profile">
-                                          <NavDropdown.Item>User Profile</NavDropdown.Item>
+                                          <NavDropdown.Item>Profil</NavDropdown.Item>
                                       </LinkContainer>
                                       <LinkContainer to="/orderhistory">
-                                          <NavDropdown.Item>Order History</NavDropdown.Item>
+                                          <NavDropdown.Item>Historique commandes</NavDropdown.Item>
                                       </LinkContainer>
                                       <NavDropdown.Divider />
                                       <Link
@@ -86,27 +86,27 @@ function App() {
                                           to="#signout"
                                           onClick={signoutHandler}
                                       >
-                                          Sign Out
+                                          Déconnexion
                                       </Link>
                                   </NavDropdown>
                               ) : (
                                   <Link className="nav-link" to="/signin">
-                                      Sign In
+                                      Connexion
                                   </Link>
                               )}
                               {userInfo && userInfo.isAdmin && (
                                   <NavDropdown title="Admin" id="admin-nav-dropdown">
                                       <LinkContainer to="/admin/dashboard">
-                                          <NavDropdown.Item>Dashboard</NavDropdown.Item>
+                                          <NavDropdown.Item>Tableau de bord</NavDropdown.Item>
                                       </LinkContainer>
                                       <LinkContainer to="/admin/products">
-                                          <NavDropdown.Item>Products</NavDropdown.Item>
+                                          <NavDropdown.Item>Produits</NavDropdown.Item>
                                       </LinkContainer>
                                       <LinkContainer to="/admin/orders">
-                                          <NavDropdown.Item>Orders</NavDropdown.Item>
+                                          <NavDropdown.Item>Commandes</NavDropdown.Item>
                                       </LinkContainer>
                                       <LinkContainer to="/admin/users">
-                                          <NavDropdown.Item>Users</NavDropdown.Item>
+                                          <NavDropdown.Item>Utilisateurs</NavDropdown.Item>
                                       </LinkContainer>
                                   </NavDropdown>
                               )}

@@ -119,7 +119,7 @@ export default function SearchScreen() {
     return (
         <div>
             <Helmet>
-                <title>Search Products</title>
+                <title>Recherche </title>
             </Helmet>
             <Row>
                 <Col md={3} className="decoration bg-dark">
@@ -131,7 +131,7 @@ export default function SearchScreen() {
                                     className={'all' === category ? 'text-bold' : ''}
                                     to={getFilterUrl({ category: 'all' })}
                                 >
-                                    Any
+                                    Toutes
                                 </Link>
                             </p>
                             {categories.map((c) => (
@@ -147,14 +147,14 @@ export default function SearchScreen() {
                         </ul>
                     </div>
                     <div>
-                        <h3>Price</h3>
+                        <h3>Prix</h3>
                         <ul>
                             <p>
                                 <Link
                                     className={'all' === price ? 'text-bold' : ''}
                                     to={getFilterUrl({ price: 'all' })}
                                 >
-                                    Any
+                                    Tous
                                 </Link>
                             </p>
                             {prices.map((p) => (
@@ -169,7 +169,7 @@ export default function SearchScreen() {
                             ))}
                         </ul>
                     </div>
-                    <h3>Color</h3>
+                    <h3>Couleur</h3>
                     <div>
                         <ul>
                             <p>
@@ -177,7 +177,7 @@ export default function SearchScreen() {
                                     className={'all' === color ? 'text-bold' : ''}
                                     to={getFilterUrl({ color: 'all' })}
                                 >
-                                    Any
+                                    Toutes
                                 </Link>
                             </p>
                             {colors.map((c) => (
@@ -223,17 +223,17 @@ export default function SearchScreen() {
                                     </div>
                                 </Col>
                                 <Col className="text-end">
-                                    Sort by{' '}
+                                    Trier{' '}
                                     <select
                                         value={order}
                                         onChange={(e) => {
                                             navigate(getFilterUrl({ order: e.target.value }));
                                         }}
                                     >
-                                        <option value="newest">Newest Arrivals</option>
-                                        <option value="lowest">Price: Low to High</option>
-                                        <option value="highest">Price: High to Low</option>
-                                        <option value="toprated">Avg. Customer Reviews</option>
+                                        <option value="newest">Nouveautés</option>
+                                        <option value="lowest">Prix croissant</option>
+                                        <option value="highest">Prix décroissant</option>
+                                        <option value="toprated">Popular</option>
                                     </select>
                                 </Col>
                             </Row>

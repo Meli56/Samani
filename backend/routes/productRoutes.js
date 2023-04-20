@@ -5,9 +5,15 @@ import expressAsyncHandler from "express-async-handler";
 import {isAdmin, isAuth} from "../utils.js";
 
 const productRouter = express.Router();
-
+const PAGE_HOME = 4;
 productRouter.get('/', async (req, res) => {
-    const products = await Product.find();
+    const { query } = req;
+    const page = query.page || 1;
+    const pageSize = query.pageSize || PAGE_HOME;
+
+    const products = await Product.find()
+        .skip(pageSize * (page - 1))
+        .limit(pageSize);
     res.send(products);
 });
 
@@ -17,20 +23,20 @@ productRouter.post(
     isAdmin,
     expressAsyncHandler(async (req, res) => {
         const newProduct = new Product({
-            name: 'sample name ' + Date.now(),
-            slug: 'sample-name-' + Date.now(),
+            name: 'nom ',
+            slug: 'nom-',
             image: '/images/p1.jpg',
             price: 0,
-            category: 'sample category',
-            brand: 'sample brand',
+            category: 'categorie',
+            brand: 'marque',
             countInStock: 0,
             rating: 0,
             numReviews: 0,
-            description: 'sample description',
-            color: 'color',
+            description: 'description',
+            color: 'couleur',
         });
         const product = await newProduct.save();
-        res.send({ message: 'Product Created', product });
+        res.send({ message: 'Produit crée', product });
     })
 );
 
@@ -52,9 +58,9 @@ productRouter.put(
             product.countInStock = req.body.countInStock;
             product.description = req.body.description;
             await product.save();
-            res.send({ message: 'Product Updated' });
+            res.send({ message: 'Produit modifié' });
         } else {
-            res.status(404).send({ message: 'Product Not Found' });
+            res.status(404).send({ message: 'Produit non trouvé' });
         }
     })
 );
@@ -67,15 +73,15 @@ productRouter.delete(
         const product = await Product.findById(req.params.id);
         if (product) {
             await product.remove();
-            res.send({ message: 'Product Deleted' });
+            res.send({ message: 'Produit supprimé' });
         } else {
-            res.status(404).send({ message: 'Product Not Found' });
+            res.status(404).send({ message: 'Produit non trouvé' });
         }
     })
 );
 
 
-const PAGE_SIZE = 9;
+const PAGE_SIZE = 6;
 productRouter.get(
     '/admin',
     isAuth,
@@ -207,7 +213,7 @@ productRouter.get('/slug/:slug', async (req, res) => {
     if (product) {
         res.send(product);
     } else {
-        res.status(404).send({ message: 'Product Not Found' });
+        res.status(404).send({ message: 'Produit non trouvé' });
     }
 });
 productRouter.get('/:id', async (req, res) => {
@@ -215,7 +221,7 @@ productRouter.get('/:id', async (req, res) => {
     if (product) {
         res.send(product);
     } else {
-        res.status(404).send({ message: 'Product Not Found' });
+        res.status(404).send({ message: 'Produit non trouvé' });
     }
 });
 export default productRouter;
