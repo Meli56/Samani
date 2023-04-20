@@ -74,7 +74,8 @@ function HomeScreen() {
                             </Row>
                         )}
                 </div>
-                <Button onClick={submitHandler}>Tous les produits</Button>
+                <br/>
+                <Button className="btn-all" onClick={submitHandler} >Tous les produits</Button>
             </section>
         </div>
     );

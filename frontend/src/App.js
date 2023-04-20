@@ -8,6 +8,7 @@ import Bandeau from "./screens/Bandeau";
 import {useContext} from "react";
 import {Store} from "./Store";
 import CartScreen from './screens/CartScreen';
+import ContactScreen from './screens/ContactScreen';
 import SigninScreen from "./screens/SigninScreen";
 import {ToastContainer} from "react-toastify";
 import ShippingAddressScreen from "./screens/ShippingAddressScreen";
@@ -64,6 +65,9 @@ function App() {
                           <Navbar.Toggle aria-controls="basic-navbar-nav" />
                           <Navbar.Collapse id="basic-navbar-nav">
                               <Nav className="me-auto  w-100  justify-content-end">
+                                  <Link to="/contact" className="nav-link">
+                                      Contact
+                                  </Link>
                                   <Link to="/cart" className="nav-link">
                                       Panier
                                       {cart.cartItems.length > 0 && (
@@ -125,6 +129,7 @@ function App() {
 
                   <Routes>
                       <Route path="/product/:slug" element={<ProductScreen />} />
+                      <Route path="/contact" element={<ContactScreen />} />
                       <Route path="/cart" element={<CartScreen />} />
                       <Route path="/signin" element={<SigninScreen />} />
                       <Route path="/signup" element={<SignupScreen />} />

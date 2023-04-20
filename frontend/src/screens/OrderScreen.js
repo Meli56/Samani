@@ -109,12 +109,18 @@ export default function OrderScreen(){
                 }
             );
             dispatch({ type: 'DELIVER_SUCCESS', payload: data });
-            toast.success('Order is delivered');
+            toast.success('Commande livrée');
         } catch (err) {
             toast.error(getError(err));
             dispatch({ type: 'DELIVER_FAIL' });
         }
     }
+
+    const handleSubmit = event => {
+            toast.success('Commande payée et envoyée ');
+            dispatch({ type: 'FETCH_REQUEST' });
+            navigate(`/`);
+    };
 
     return loading ? (
         <LoadingBox></LoadingBox>
@@ -125,7 +131,7 @@ export default function OrderScreen(){
             <Helmet>
                 <title>Commande {orderId}</title>
             </Helmet>
-            <h1 className="my-3">Order {orderId}</h1>
+            <h1 className="my-3">Commande {orderId}</h1>
             <Row>
                 <Col md={8}>
                     <Card className="items-cart mb-3">
@@ -165,7 +171,7 @@ export default function OrderScreen(){
                                             <Col md={3}>
                                                 <span>{item.quantity}</span>
                                             </Col>
-                                            <Col md={3}>${item.price}</Col>
+                                            <Col md={3}>{item.price}€</Col>
                                         </Row>
                                     </ListGroup.Item>
                                 ))}
@@ -181,19 +187,19 @@ export default function OrderScreen(){
                                 <ListGroup.Item>
                                     <Row>
                                         <Col>Items</Col>
-                                        <Col>${order.itemsPrice.toFixed(2)}</Col>
+                                        <Col>{order.itemsPrice.toFixed(2)}€</Col>
                                     </Row>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
                                     <Row>
                                         <Col>Livraison</Col>
-                                        <Col>${order.shippingPrice.toFixed(2)}</Col>
+                                        <Col>{order.shippingPrice.toFixed(2)}€</Col>
                                     </Row>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
                                     <Row>
                                         <Col>Taxes</Col>
-                                        <Col>${order.taxPrice.toFixed(2)}</Col>
+                                        <Col>{order.taxPrice.toFixed(2)}€</Col>
                                     </Row>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
@@ -202,13 +208,13 @@ export default function OrderScreen(){
                                             <strong> Total</strong>
                                         </Col>
                                         <Col>
-                                            <strong>${order.totalPrice.toFixed(2)}</strong>
+                                            <strong>{order.totalPrice.toFixed(2)}€</strong>
                                         </Col>
                                     </Row>
                                 </ListGroup.Item>
                                 {!order.isPaid && (
                                     <ListGroup.Item>
-                                        <Button onClick={() => window.open('https://www.sandbox.paypal.com', "_blank")}>
+                                        <Button onClick={handleSubmit}>
                                             Payer
                                         </Button>
 

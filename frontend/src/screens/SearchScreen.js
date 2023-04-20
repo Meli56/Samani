@@ -233,7 +233,7 @@ export default function SearchScreen() {
                                         <option value="newest">Nouveautés</option>
                                         <option value="lowest">Prix croissant</option>
                                         <option value="highest">Prix décroissant</option>
-                                        <option value="toprated">Popular</option>
+                                        <option value="toprated">Populaires</option>
                                     </select>
                                 </Col>
                             </Row>

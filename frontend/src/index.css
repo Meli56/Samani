@@ -15,6 +15,15 @@ main{
   flex:1;
 }
 
+a {
+  color: #000;
+  text-decoration: none;
+}
+a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
 .products{
   display: flex;
   flex-wrap: wrap;
@@ -31,7 +40,7 @@ main{
 .product{
   padding:1rem;
   margin:1rem;
-  box-shadow: -10px 30px 70px rgba(219,222,225);
+  box-shadow: -10px 10px 70px rgba(219,222,225);
   border-radius: 20px;
   border: 0;
 
@@ -127,8 +136,8 @@ h1{
   color: #a0a0a0;
 }
 .checkout-steps > div.active {
-  border-bottom: 0.2rem solid #f08000;
-  color: #f08000;
+  border-bottom: 0.2rem solid rgba(77, 49, 19, 0.94);
+  color: rgba(77, 49, 19, 0.94);
 }
 
 /* sidebar */
@@ -176,4 +185,43 @@ h1{
 .decoration .text-bold {
   font-weight: bold;
   text-decoration: underline;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #573119;
+  border-color: #573119;
+  z-index: 5;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #422716;
+  border-color: #422716;
+}
+.btn-check:focus + .btn-primary, .btn-primary:focus {
+  color: #fff;
+  background-color: #422716;
+  border-color: #422716;
+  box-shadow: 0 0 0 .10rem rgba(77, 49, 19, 0.94);
+}
+.btn-check:active + .btn-primary:focus, .btn-check:checked + .btn-primary:focus, .btn-primary.active:focus, .btn-primary:active:focus, .show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 .10rem rgba(77, 49, 19, 0.94);
+}
+
+.btn-outline-primary {
+  color: #fff;
+  border-color: #fff;
+}
+
+.btn-outline-primary:hover {
+  color: #fff;
+  border-color: #422716;
+  background-color: #422716;
+}
+
+.btn-check:active + .btn-outline-primary, .btn-check:checked + .btn-outline-primary, .btn-outline-primary.active, .btn-outline-primary.dropdown-toggle.show, .btn-outline-primary:active {
+  color: #fff;
+  background-color: #422716;
+  border-color: #422716;
 }
