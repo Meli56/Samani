@@ -22,6 +22,17 @@ const reducer = (state, action) => {
             };
         case 'FETCH_FAIL':
             return { ...state, loading: false, error: action.payload };
+
+        case 'CREATE_REQUEST':
+            return { ...state, loadingCreate: true };
+        case 'CREATE_SUCCESS':
+            return {
+                ...state,
+                loadingCreate: false,
+            };
+        case 'CREATE_FAIL':
+            return { ...state, loadingCreate: false };
+
         case 'DELETE_REQUEST':
             return { ...state, loadingDelete: true, successDelete: false };
         case 'DELETE_SUCCESS':
@@ -85,10 +96,9 @@ export default function ProductListScreen() {
 
 
     const createHandler = async () => {
-        if (window.confirm('Voulez-vous créer un produit ?')) {
+
             try {
-                dispatch({ type: 'CREATE_REQUEST' });
-                const { data } = await axios.post(
+                const { data } =  await axios.post(
                     '/api/products',
                     {},
                     {
@@ -98,14 +108,13 @@ export default function ProductListScreen() {
                 toast.success('Produit créé ');
                 dispatch({ type: 'CREATE_SUCCESS' });
                 navigate(`/admin/product/${data.product._id}`);
-            } catch (err) {
+            } catch (error) {
                 toast.error(getError(error));
                 dispatch({
                     type: 'CREATE_FAIL',
                 });
             }
-        }
-    };
+            };
 
     const deleteHandler = async (product) => {
         if (window.confirm('Etes-vous sûr de vouloir supprimer le produit ?')) {
