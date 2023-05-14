@@ -184,7 +184,7 @@ export default function ProductListScreen() {
                                         variant="light"
                                         onClick={() => navigate(`/admin/product/${product._id}`)}
                                     >
-                                        Modifer
+                                        Modifier
                                     </Button>
                                     &nbsp;
                                     <Button

@@ -122,7 +122,7 @@ export default function UserListScreen() {
                                     variant="light"
                                     onClick={() => navigate(`/admin/user/${user._id}`)}
                                 >
-                                    Modifer
+                                    Modifier
                                 </Button>
                                 &nbsp;
                                 <Button

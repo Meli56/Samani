@@ -76,7 +76,7 @@ export default function CartScreen(){
                             <i className="fas fa-plus-circle"></i>
                           </Button>
                         </Col>
-                        <Col md={3}>${item.price}</Col>
+                        <Col md={3}>{item.price}€ TTC</Col>
                         <Col md={2}>
                           <Button
                               onClick={() => removeItemHandler(item)}
@@ -97,9 +97,8 @@ export default function CartScreen(){
                   <ListGroup variant="flush">
                     <ListGroup.Item>
                       <h3>
-                        Sous total ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}
-                        items) :
-                        {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}€
+                        Sous total ({cartItems.reduce((a, c) => a + c.quantity, 0)}) <br/>
+                          {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}€ TTC
                       </h3>
                     </ListGroup.Item>
                     <ListGroup.Item>

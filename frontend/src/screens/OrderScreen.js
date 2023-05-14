@@ -117,7 +117,7 @@ export default function OrderScreen(){
     }
 
     const handleSubmit = event => {
-            toast.success('Commande payée et envoyée ');
+            toast.success('Un mail de confirmation a été envoyé à votre adresse mail');
             dispatch({ type: 'FETCH_REQUEST' });
             navigate(`/`);
     };
@@ -171,7 +171,7 @@ export default function OrderScreen(){
                                             <Col md={3}>
                                                 <span>{item.quantity}</span>
                                             </Col>
-                                            <Col md={3}>{item.price}€</Col>
+                                            <Col md={3}>{item.price}€ TTC</Col>
                                         </Row>
                                     </ListGroup.Item>
                                 ))}
@@ -187,19 +187,13 @@ export default function OrderScreen(){
                                 <ListGroup.Item>
                                     <Row>
                                         <Col>Items</Col>
-                                        <Col>{order.itemsPrice.toFixed(2)}€</Col>
+                                        <Col className="align-right">{order.itemsPrice.toFixed(2)}€ TTC</Col>
                                     </Row>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
                                     <Row>
                                         <Col>Livraison</Col>
-                                        <Col>{order.shippingPrice.toFixed(2)}€</Col>
-                                    </Row>
-                                </ListGroup.Item>
-                                <ListGroup.Item>
-                                    <Row>
-                                        <Col>Taxes</Col>
-                                        <Col>{order.taxPrice.toFixed(2)}€</Col>
+                                        <Col className="align-right">{order.shippingPrice.toFixed(2)}€ TTC</Col>
                                     </Row>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
@@ -207,8 +201,8 @@ export default function OrderScreen(){
                                         <Col>
                                             <strong> Total</strong>
                                         </Col>
-                                        <Col>
-                                            <strong>{order.totalPrice.toFixed(2)}€</strong>
+                                        <Col className="align-right">
+                                            <strong>{order.totalPrice.toFixed(2)}€ TTC</strong>
                                         </Col>
                                     </Row>
                                 </ListGroup.Item>

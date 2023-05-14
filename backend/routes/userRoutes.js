@@ -3,6 +3,7 @@ import bcrypt from 'bcryptjs';
 import expressAsyncHandler from 'express-async-handler';
 import User from '../models/userModel.js';
 import {generateToken, isAdmin, isAuth} from '../utils.js';
+import Product from "../models/productModel.js";
 
 const userRouter = express.Router();
 userRouter.get(
@@ -19,7 +20,8 @@ userRouter.get(
     isAuth,
     isAdmin,
     expressAsyncHandler(async (req, res) => {
-        const user = await User.findById(req.params.id);
+        const userId = req.params.id;
+        const user = await User.findById(userId);
         if (user) {
             res.send(user);
         } else {
@@ -33,10 +35,11 @@ userRouter.put(
     isAuth,
     isAdmin,
     expressAsyncHandler(async (req, res) => {
-        const user = await User.findById(req.params.id);
+        const userId = req.params.id;
+        const user = await User.findById(userId);
         if (user) {
-            user.name = req.body.name || user.name;
-            user.email = req.body.email || user.email;
+            user.name = req.body.name ;
+            user.email = req.body.email ;
             user.isAdmin = Boolean(req.body.isAdmin);
             const updatedUser = await user.save();
             res.send({ message: 'Utilisateur modifé', user: updatedUser });

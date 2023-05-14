@@ -41,8 +41,8 @@ export default function PlaceOrderScreen() {
         cart.cartItems.reduce((a, c) => a + c.quantity * c.price, 0)
     );
     cart.shippingPrice = cart.itemsPrice > 100 ? round2(0) : round2(10);
-    cart.taxPrice = round2(0.15 * cart.itemsPrice);
-    cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
+    cart.taxPrice = round2(0.20 * cart.itemsPrice);
+    cart.totalPrice = cart.itemsPrice + cart.shippingPrice ;
 
     const placeOrderHandler = async () => {
         try {
@@ -129,7 +129,7 @@ export default function PlaceOrderScreen() {
                                             <Col md={3}>
                                                 <span>{item.quantity}</span>
                                             </Col>
-                                            <Col md={3}>${item.price}</Col>
+                                            <Col md={3}>{item.price}€ TTC</Col>
                                         </Row>
                                     </ListGroup.Item>
                                 ))}
@@ -146,19 +146,13 @@ export default function PlaceOrderScreen() {
                                 <ListGroup.Item>
                                     <Row>
                                         <Col>Items</Col>
-                                        <Col>{cart.itemsPrice.toFixed(2)}€</Col>
+                                        <Col className="align-right">{cart.itemsPrice.toFixed(2)}€ TTC</Col>
                                     </Row>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
                                     <Row>
                                         <Col>Livraison</Col>
-                                        <Col>{cart.shippingPrice.toFixed(2)}€</Col>
-                                    </Row>
-                                </ListGroup.Item>
-                                <ListGroup.Item>
-                                    <Row>
-                                        <Col>Taxes</Col>
-                                        <Col>{cart.taxPrice.toFixed(2)}€</Col>
+                                        <Col className="align-right">{cart.shippingPrice.toFixed(2)}€ TTC</Col>
                                     </Row>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
@@ -166,8 +160,8 @@ export default function PlaceOrderScreen() {
                                         <Col>
                                             <strong> Total</strong>
                                         </Col>
-                                        <Col>
-                                            <strong>{cart.totalPrice.toFixed(2)}€</strong>
+                                        <Col className="align-right">
+                                            <strong>{cart.totalPrice.toFixed(2)}€ TTC</strong>
                                         </Col>
                                     </Row>
                                 </ListGroup.Item>

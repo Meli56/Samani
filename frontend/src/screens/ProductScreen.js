@@ -93,10 +93,6 @@ function ProductScreen() {
                         </ListGroupItem>
 
                         <ListGroupItem>
-                            Prix : {product.price}€
-                        </ListGroupItem>
-
-                        <ListGroupItem>
                             Description:
                             <p>{product.description}</p>
                         </ListGroupItem>
@@ -114,7 +110,7 @@ function ProductScreen() {
                                 <ListGroupItem>
                                     <Row>
                                     <Col>Prix : </Col>
-                                        <Col>{product.price}€</Col>
+                                        <Col>{product.price}€ TTC</Col>
                                     </Row>
                                 </ListGroupItem>
 

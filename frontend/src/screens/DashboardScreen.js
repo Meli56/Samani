@@ -90,7 +90,7 @@ export default function DashboardScreen() {
                                         {summary.orders && summary.users[0]
                                             ? summary.orders[0].totalSales.toFixed(2)
                                             : 0}
-                                        €
+                                        € TTC
                                     </Card.Title>
                                     <Card.Text> Commandes</Card.Text>
                                 </Card.Body>
